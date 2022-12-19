@@ -5,30 +5,19 @@ namespace NickyTaskManager;
 public class NickyManagedTask
 {
     private string task;
-    /*
-     * Priority is to be between 0 - 255
-     * Only 0-5 are to be used
-     * 0 - None
-     * 1 - Very Low
-     * 2 - Low
-     * 3 - Medium
-     * 4 - High
-     * 5 - Very High
-     *
-     * Custom Priorities are to be set to be between 100 - 200.
-     */
-    private byte priority;
+    private Priority priority;
     private DateTime endDate;
     private DateTime startDate;
+    private int realPriority;
 
-    public NickyManagedTask(string task, byte priority, DateTime endDate)
+    public NickyManagedTask(string task, Priority priority, DateTime endDate)
     {
         this.task = task;
         this.priority = priority;
         this.startDate = DateTime.Now;
         this.endDate = endDate;
+        calcRealPriority();
     }
-
 
     public DateTime StartDate
     {
@@ -42,7 +31,7 @@ public class NickyManagedTask
         set => endDate = value;
     }
 
-    public byte Priority
+    public Priority Priority
     {
         get => priority;
         set => priority = value;
@@ -57,5 +46,10 @@ public class NickyManagedTask
     public TimeSpan getTimeLeft()
     {
         return endDate - DateTime.Now;;
+    }
+
+    public void calcRealPriority()
+    {
+        this.realPriority = (int)(((byte)Priority) * (getTimeLeft().Hours));
     }
 }
