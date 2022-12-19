@@ -8,7 +8,7 @@ public class NickyManagedTask
     private Priority priority;
     private DateTime endDate;
     private DateTime startDate;
-    private int realPriority;
+    internal int realPriority;
 
     public NickyManagedTask(string task, Priority priority, DateTime endDate)
     {

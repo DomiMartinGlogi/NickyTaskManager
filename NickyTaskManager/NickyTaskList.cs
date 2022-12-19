@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace NickyTaskManager;
@@ -15,11 +16,13 @@ public class NickyTaskList
     public void addTask(NickyManagedTask task)
     {
         list.Add(task);
+        Sort();
     }
 
     public void removeTask(NickyManagedTask task)
     {
         list.Remove(task);
+        Sort();
     }
 
     public NickyManagedTask currentTask()
@@ -28,5 +31,9 @@ public class NickyTaskList
         NickyManagedTask task = list[index];
         return task;
     }
-    
+
+    public void Sort()
+    {
+        list.OrderByDescending(x => x.realPriority).ToList();
+    }
 }
