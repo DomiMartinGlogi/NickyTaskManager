@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace NickyTaskManager;
 
@@ -34,6 +34,10 @@ public class NickyTaskList
 
     public void Sort()
     {
+        foreach (NickyManagedTask task in list)
+        {
+            task.calcRealPriority();
+        }
         list.OrderByDescending(x => x.realPriority).ToList();
     }
 }
