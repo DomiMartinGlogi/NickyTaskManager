@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -6,13 +7,24 @@ namespace NickyTaskManager;
 
 public class NickyTaskList
 {
+    private string name;
     private List<NickyManagedTask> list;
 
     public NickyTaskList()
     {
+        this.name = "New List";
         this.list = new List<NickyManagedTask>();
     }
-
+    public NickyTaskList(string name)
+    {
+        this.name = name;
+        this.list = new List<NickyManagedTask>();
+    }
+    public string Name
+    {
+        get => name;
+        set => name = value ?? throw new ArgumentNullException(nameof(value));
+    }
     public void addTask(NickyManagedTask task)
     {
         list.Add(task);
