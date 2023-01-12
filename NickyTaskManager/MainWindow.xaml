@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="802">
     <Grid>
-        <ComboBox x:Name="ListSelect" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" VerticalAlignment="Top" Width="180"/>
+        <ComboBox x:Name="ListSelect" SelectionChanged="ListSelect_OnSelectionChanged" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" VerticalAlignment="Top" Width="180"/>
         <ComboBox x:Name="ItemSelect" HorizontalAlignment="Left" Margin="205,39,0,0" VerticalAlignment="Top" Width="182" Height="23"/>
         <Button x:Name="CreateList" Click="CreateList_OnClick" Content="Create List" HorizontalAlignment="Left" Margin="412,39,0,0" VerticalAlignment="Top" Width="180" Height="20"/>
         <TextBox x:Name="New_List" HorizontalAlignment="Left" Margin="412,13,0,0" TextWrapping="Wrap" Text="New List" VerticalAlignment="Top" Width="180" Height="20"/>

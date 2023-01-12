@@ -8,7 +8,7 @@ namespace NickyTaskManager;
 public class NickyTaskList
 {
     private string name;
-    private List<NickyManagedTask> list;
+    internal List<NickyManagedTask> list;
 
     public NickyTaskList()
     {
