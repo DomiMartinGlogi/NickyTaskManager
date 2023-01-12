@@ -6,3 +6,6 @@ It will eventually feature the following:
   - Define Number of Tasks to be shown at once
   - Multiple ToDo lists
   - Show current Tasks of multiple ToDo Lists
+ 
+ Currently in the works:
+  - UI
