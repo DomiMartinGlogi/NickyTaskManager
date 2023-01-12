@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NickyTaskManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="802">
     <Grid>
         <ComboBox x:Name="ListSelect" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" VerticalAlignment="Top" Width="180"/>
         <ComboBox x:Name="ItemSelect" HorizontalAlignment="Left" Margin="205,39,0,0" VerticalAlignment="Top" Width="182" Height="23"/>
@@ -17,6 +17,7 @@
         <Calendar x:Name="DueDateNew" HorizontalAlignment="Left" Margin="608,63,0,0" VerticalAlignment="Top" Width="182" Height="182"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.156,0.676" Width="180"><Run Language="en-ch" Text="Selected List:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="205,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"><Run Language="en-ch" Text="Current Task:"/></TextBlock>
-        <Button x:Name="SaveButton" Click="SaveButton_OnClick" Content="Save" HorizontalAlignment="Left" Margin="750,404,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.834,2.116"/>
+        <Button x:Name="SaveButton" Click="SaveButton_OnClick" Content="Save" HorizontalAlignment="Left" Margin="761,454,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.834,2.116"/>
+        <Button x:Name="RemoveListButton" Click="RemoveListButton_OnClick" Content="Remove List" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="180"/>
     </Grid>
 </Window>

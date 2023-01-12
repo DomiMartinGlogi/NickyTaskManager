@@ -53,5 +53,25 @@ namespace NickyTaskManager
             }
             Update();
         }
+
+        private void RemoveListButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ListSelect.Text == "")
+            {
+                
+            }
+            else
+            {
+                foreach (NickyTaskList subList in list)
+                {
+                    if (subList.Name == ListSelect.Text)
+                    {
+                        list.Remove(subList);
+                        break;
+                    }
+                }
+            }
+            Update();
+        }
     }
 }
