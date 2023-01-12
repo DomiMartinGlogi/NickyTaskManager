@@ -25,13 +25,9 @@ namespace NickyTaskManager
             InitializeComponent();
         }
 
-        private void Button_OnClick(object sender, RoutedEventArgs e)
+        private void ListSelect_OnInitialized(object? sender, EventArgs e)
         {
-            Button btn = new Button();
-            btn.Content = "Test for Button 2";
-            btn.Name = "Button 2";
-            btn.Background = Brushes.LightPink;
-            Button1.Content = btn;
+            throw new NotImplementedException();
         }
     }
 }

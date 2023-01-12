@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Name = "Button1" Click="Button_OnClick">A Test</Button>
+        <ComboBox x:Name="ListSelect" Initialized="ListSelect_OnInitialized" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="180"/>
+        <ComboBox x:Name="ItemSelect" HorizontalAlignment="Left" Margin="208,10,0,0" VerticalAlignment="Top" Width="182" Height="23"/>
+        <Button x:Name="CreateList" Content="Create List" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Width="180" Height="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,72,0,0" TextWrapping="Wrap" Text="New List" VerticalAlignment="Top" Width="180" Height="20"/>
     </Grid>
 </Window>
