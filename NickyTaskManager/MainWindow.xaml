@@ -12,7 +12,7 @@
         <Button x:Name="CreateList" Click="CreateList_OnClick" Content="Create List" HorizontalAlignment="Left" Margin="412,39,0,0" VerticalAlignment="Top" Width="180" Height="20"/>
         <TextBox x:Name="New_List" HorizontalAlignment="Left" Margin="412,13,0,0" TextWrapping="Wrap" Text="New List" VerticalAlignment="Top" Width="180" Height="20"/>
         <TextBox x:Name="New_Task" HorizontalAlignment="Left" Margin="608,13,0,0" TextWrapping="Wrap" Text="New Task" VerticalAlignment="Top" Width="182" Height="20"/>
-        <Button x:Name="CreateTask" Content="Create Task" HorizontalAlignment="Left" Margin="608,230,0,0" VerticalAlignment="Top" Width="182" Height="20"/>
+        <Button x:Name="CreateTask" Click="CreateTask_OnClick" Content="Create Task" HorizontalAlignment="Left" Margin="608,230,0,0" VerticalAlignment="Top" Width="182" Height="20"/>
         <ComboBox x:Name="Priority" HorizontalAlignment="Left" Margin="610,38,0,0" VerticalAlignment="Top" Width="181" Height="20"/>
         <Calendar x:Name="DueDateNew" HorizontalAlignment="Left" Margin="608,63,0,0" VerticalAlignment="Top" Width="182" Height="182"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.156,0.676" Width="180"><Run Language="en-ch" Text="Selected List:"/></TextBlock>
