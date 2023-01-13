@@ -19,5 +19,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="205,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"><Run Language="en-ch" Text="Current Task:"/></TextBlock>
         <Button x:Name="SaveButton" Click="SaveButton_OnClick" Content="Save" HorizontalAlignment="Left" Margin="761,454,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.834,2.116"/>
         <Button x:Name="RemoveListButton" Click="RemoveListButton_OnClick" Content="Remove List" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button x:Name="TaskRemoveButton" Click="TaskRemoveButton_OnClick" Content="Remove Task" HorizontalAlignment="Left" Margin="205,69,0,0" VerticalAlignment="Top" Width="182"/>
     </Grid>
 </Window>

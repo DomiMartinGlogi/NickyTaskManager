@@ -136,27 +136,42 @@ namespace NickyTaskManager
                     Console.WriteLine("Date cannot be in the past");
                     return;
                 }
-                else
+
+                Priority priority = Priority.Text switch
                 {
-                    Priority priority = Priority.Text switch
-                    {
-                        "Very High" => NickyTaskManager.Priority.VeryHigh,
-                        "High" => NickyTaskManager.Priority.High,
-                        "Medium" => NickyTaskManager.Priority.Medium,
-                        "Low" => NickyTaskManager.Priority.Low,
-                        "Very Low" => NickyTaskManager.Priority.VeryLow,
-                        _ => NickyTaskManager.Priority.Default
-                    };
-                    NickyManagedTask newTask = new NickyManagedTask(New_Task.Text, priority, (DateTime)DueDateNew.SelectedDate);
-                    NickyTaskList taskList = list[indexOfList];
-                    taskList.addTask(newTask);
-                }
+                    "Very High" => NickyTaskManager.Priority.VeryHigh,
+                    "High" => NickyTaskManager.Priority.High,
+                    "Medium" => NickyTaskManager.Priority.Medium,
+                    "Low" => NickyTaskManager.Priority.Low,
+                    "Very Low" => NickyTaskManager.Priority.VeryLow,
+                    _ => NickyTaskManager.Priority.Default
+                };
+                NickyManagedTask newTask = new NickyManagedTask(New_Task.Text, priority, (DateTime)DueDateNew.SelectedDate);
+                NickyTaskList taskList = list[indexOfList];
+                taskList.addTask(newTask);
             }
             Update();
             New_Task.Text = "New Task";
         }
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            Update();
+        }
+
+        private void TaskRemoveButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            NickyTaskList tempList = list[indexOfList];
+            list.Remove(tempList);
+            foreach (var task in tempList.list)
+            {
+                if (task.Task == ItemSelect.Text)
+                {
+                    tempList.list.Remove(task);
+                    break;
+                }
+                Console.WriteLine("Task not found.");
+            }
+            list.Add(tempList);
             Update();
         }
     }
