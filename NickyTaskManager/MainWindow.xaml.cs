@@ -72,7 +72,7 @@ namespace NickyTaskManager
                 }
             }
             
-            ItemSelect.ItemsSource = nameListTasks;
+            TaskSelect.ItemsSource = nameListTasks;
         }
 
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
@@ -163,7 +163,7 @@ namespace NickyTaskManager
             list.Remove(tempList);
             foreach (var task in tempList.list)
             {
-                if (task.Task == ItemSelect.Text)
+                if (task.Task == TaskSelect.Text)
                 {
                     tempList.list.Remove(task);
                     break;
