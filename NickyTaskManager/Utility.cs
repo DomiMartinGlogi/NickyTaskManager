@@ -24,11 +24,19 @@ public static class Utility
             return list;
         }
 
-        foreach (var sublist in list)
+        try
         {
-            var filename = sublist.Name + ".json";
-            NickyTaskList newSublist = JsonSerializer.Deserialize<NickyTaskList>(fileName);
-            completeList.Add(newSublist);
+            foreach (var sublist in list)
+            {
+                var filename = sublist.Name + ".json";
+                NickyTaskList newSublist = JsonSerializer.Deserialize<NickyTaskList>(fileName);
+                completeList.Add(newSublist);
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            completeList = new List<NickyTaskList>();
         }
 
         return completeList;
@@ -43,6 +51,7 @@ public static class Utility
         {
             var fileNameSublist = sublist.Name;
             var jsonStringSublist = JsonSerializer.Serialize(sublist.list);
+            File.WriteAllText(fileNameSublist,jsonStringSublist);
         }
     }
 }
