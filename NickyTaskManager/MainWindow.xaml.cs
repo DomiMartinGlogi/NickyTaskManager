@@ -43,6 +43,7 @@ namespace NickyTaskManager
             Update();
         }
 
+        //Update Method, Should be called after EVERY function
         private void Update()
         {
             /*
@@ -67,7 +68,7 @@ namespace NickyTaskManager
                     {
                         nameListTasks.Add(task.Task);
                     }
-                    index = list.IndexOf(sublist);
+                    indexOfTask = list.IndexOf(sublist);
                     break;
                 }
             }
@@ -75,6 +76,7 @@ namespace NickyTaskManager
             TaskSelect.ItemsSource = nameListTasks;
         }
 
+        //Saving
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
             Utility.saver(list);
@@ -95,7 +97,8 @@ namespace NickyTaskManager
             }
             Update();
         }
-
+        
+        //Method to Remove a List from the List of Tasklists.
         private void RemoveListButton_OnClick(object sender, RoutedEventArgs e)
         {
             if (ListSelect.Text == "")
@@ -115,12 +118,14 @@ namespace NickyTaskManager
             }
             Update();
         }
-
+        
+        //Method to change the Task List upon choosing a different TaskList.
         private void ListSelect_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Update();
         }
 
+        //Method to Create A Task.
         private void CreateTask_OnClick(object sender, RoutedEventArgs e)
         {
             if (New_Task.Text == "" || New_Task.Text == "New Task")
@@ -152,11 +157,14 @@ namespace NickyTaskManager
             Update();
             New_Task.Text = "New Task";
         }
+        
+        //Updates the Screen every Second
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             Update();
         }
-
+        
+        //Removes a Task from the Tasklist
         private void TaskRemoveButton_OnClick(object sender, RoutedEventArgs e)
         {
             NickyTaskList tempList = list[indexOfList];
