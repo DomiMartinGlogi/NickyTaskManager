@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -122,6 +123,16 @@ namespace NickyTaskManager
         //Method to change the Task List upon choosing a different TaskList.
         private void ListSelect_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var nameOfList = ListSelect.Text;
+            NickyTaskList listChosen = new NickyTaskList();
+            foreach (var sublist in list)
+            {
+                if (nameOfList == sublist.Name)
+                {
+                    listChosen = sublist;
+                }
+            }
+            indexOfList = list.IndexOf(listChosen);
             Update();
         }
 
@@ -133,27 +144,39 @@ namespace NickyTaskManager
                 Console.WriteLine("Invalid Task Name");
                 return;
             }
-            else
-            {
-                if (DueDateNew.SelectedDate < DateTime.Now)
-                {
-                    Console.WriteLine("Date cannot be in the past");
-                    return;
-                }
 
-                Priority priority = Priority.Text switch
-                {
-                    "Very High" => NickyTaskManager.Priority.VeryHigh,
-                    "High" => NickyTaskManager.Priority.High,
-                    "Medium" => NickyTaskManager.Priority.Medium,
-                    "Low" => NickyTaskManager.Priority.Low,
-                    "Very Low" => NickyTaskManager.Priority.VeryLow,
-                    _ => NickyTaskManager.Priority.Default
-                };
-                NickyManagedTask newTask = new NickyManagedTask(New_Task.Text, priority, (DateTime)DueDateNew.SelectedDate);
-                NickyTaskList taskList = list[indexOfList];
-                taskList.addTask(newTask);
+            if (DueDateNew.SelectedDate < DateTime.Now)
+            {
+                Console.WriteLine("Date cannot be in the past");
+                return;
             }
+
+            if (indexOfList > list.Count - 1 || indexOfList < 0 || indexOfList == null)
+            {
+                Console.WriteLine("Index out of Bounds");
+                if (indexOfList == null)
+                {
+                    Console.WriteLine("Index is null");
+                }
+                else
+                {
+                    Console.WriteLine("Index is: " + indexOfList);
+                }
+                return;
+            }
+            
+            Priority priority = Priority.Text switch
+            {
+                "Very High" => NickyTaskManager.Priority.VeryHigh,
+                "High" => NickyTaskManager.Priority.High,
+                "Medium" => NickyTaskManager.Priority.Medium,
+                "Low" => NickyTaskManager.Priority.Low,
+                "Very Low" => NickyTaskManager.Priority.VeryLow,
+                _ => NickyTaskManager.Priority.Default
+            };
+            NickyManagedTask newTask = new NickyManagedTask(New_Task.Text, priority, (DateTime)DueDateNew.SelectedDate);
+            NickyTaskList taskList = list[indexOfList];
+            taskList.addTask(newTask);
             Update();
             New_Task.Text = "New Task";
         }
